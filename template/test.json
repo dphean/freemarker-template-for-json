@@ -1,0 +1,42 @@
+\u007B
+
+hello ${latestProduct.name}!
+
+<#assign x = "something">
+${indexOf("met", x)}
+${indexOf("foo", x)}
+
+
+
+
+<#-- Now you can't use <#macro upper>, but instead you can: -->
+<#//assign upper = "com.demo.freemarker.UpperDirective"?new()>
+
+
+<@upper>
+  bar
+  <#-- All kind of FTL is allowed here -->
+  <#list ["red", "green", "blue"] as color>
+    ${color}
+  </#list>
+  baaz
+</@upper>
+
+
+
+<#assign x = 1>
+
+<@repeat count=4>
+  Test ${x}
+  <#assign x++>
+</@repeat>
+
+<@repeat count=3 hr=true>
+  Test
+</@repeat>
+
+<@repeat count=3; cnt>
+  ${cnt}. Test
+</@repeat>
+
+\u007D
